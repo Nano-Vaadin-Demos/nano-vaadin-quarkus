@@ -5,15 +5,17 @@
   <groupId>org.rapidpm.vaadin</groupId>
   <artifactId>nano-vaadin-quarkus-v10</artifactId>
   <version>1.0.0-SNAPSHOT</version>
-  <properties>
-    <surefire-plugin.version>2.22.0</surefire-plugin.version>
-    <vaadin.version>13.0.4</vaadin.version>
-    <quarkus.version>0.13.3</quarkus.version>
+  <packaging>war</packaging>
 
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <properties>
+    <vaadin.version>13.0.4</vaadin.version>
+    <surefire-plugin.version>2.22.0</surefire-plugin.version>
+    <quarkus.version>0.13.3</quarkus.version>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -72,6 +74,15 @@
   </dependencies>
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.2.1</version>
+        <configuration>
+          <!-- das brauchts leider, sonst muessen wir ein web.xml tippen... -->
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>io.quarkus</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>

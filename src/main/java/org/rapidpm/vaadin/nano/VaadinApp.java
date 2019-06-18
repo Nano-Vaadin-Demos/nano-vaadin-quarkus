@@ -24,7 +24,7 @@ import com.vaadin.flow.router.Route;
 import org.rapidpm.dependencies.core.logger.HasLogger;
 
 
-@Route("")
+@Route("ui")
 public class VaadinApp extends Composite<Div> implements HasLogger {
 
   public static final String BTN_CLICK_ME   = "btn-click-me";
